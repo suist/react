@@ -6,3 +6,64 @@
 -> 라이브러리
  
 Q. 라이브러리와 프레임워크의 차이점을 설명할 수 있는가 ?
+
+#5
+컴포넌트(디자인)만들기
+
+java 안에 html이 있음.
+이것이 JSX = 리액트 컴포넌트를 만들떄 사용하는 언어
+규칙이 심플하다.
+html  JSX
+class="name" > className=""
+<img src={logo}
+
+java
+render()(출력. 웹페이지 표사){
+	return (
+	html
+
+import React -> 라이브러리
+reactDOM 라이브러리를 웹사이트에 출력
+//document object model, 웹페이지
+reactNative ->모바일앱
+
+ReactDOM, 1개의 컴포넌트 render(출력) 함
+
+index.js
+
+
+ReactDOM.render(<App/>,document.getElementById('root'));
+
+index.html에 id='root' 로거기서 내용수정.
+
+//따라해 봅시다
+
+movie.js movie.css 생성
+app.js 처럼 기본문 생성해줌 .css도
+
+js>
+
+import React,{component} from 'react';
+import './Movie.css';
+//컴포넌트는 무조건 render로 출력
+class Movie extends Componet{
+	render(){
+	return(
+	<h1>sdf</h1>
+	
+	)
+	}
+}
+export default Movie;
+
+
+
+app.js>
+
+import Movie from '/.Movie';
+
+class App extends Component {
+	render() {
+	return (
+	<div className="App">
+<movie />
