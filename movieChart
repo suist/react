@@ -67,3 +67,133 @@ class App extends Component {
 	return (
 	<div className="App">
 <movie />
+
+ #2-3. Lists with .map
+배열 로 만들기
+const movies =[
+{title: "sksk",
+poster: "eff.jpg"
+},
+{title : "oldboy",
+poster : "dd.jpg"
+}
+…
+
+// array map ㄱ능.  
+{movies.map(movie => {
+return <Movie title={movie.title} poster={movie.poster} />
+
+-> 
+<Movie title={movies[0].title} poster={movies[0].poster} />
+… 과 같은
+
+#2-4. Validating Props with PropTypes
+key 값 주기 (id) 같은. 그래야 에러발생 NO.
+
+{movies.map((movie, index) => {
+return <Movie title={movie.title} poster={movie.poster} key={index} />
+
+//PropTypes 설정하기 : prop로 가져오는 값의 타입을 볼떄. 예상가능. 
+
+import PropTypes from 'prop-types';
+
+
+Movie 컴포넌트 {
+static propTypes = {
+	title: PropTypes.string.isRequired,
+	poster: PropTypes.string.isRequired
+	}
+	
+	render() {…
+	
+MoviePoster Component {
+static proptype = {
+poster : propType.string.isRequired
+	
+#3-1. Lifecycle Events on React
+What is 'Lifecycle' ?
+컴포넌트는 여러 기능을 정해진 순서대로 실행함.
+
+Render : componentWillMount() -> render() -> compomentDidmount()
+
+이 과정은 자동실행. console.log로 밑에 메시지를 넣어서 순서 확인 가능
+
+
+Update componentWillReceiveProps() -> shouldComponentUpdate()->
+componentWillUpdate() -> render() ->component
+	
+#4-1. Thinking in React: Component State
+state 만들기
+직접 사용은 되지만 그럴 시 오류 발생.!
+
+class App extends Component{
+state ={
+	greeting : 'Hello'
+	}
+
+componentDidMount(){
+setTimeout(() => {
+	this.setState({
+		greeting: 'Hello again'
+		})
+		}, 2000)
+		}
+		
+		그리고
+		return 값에
+		return (
+		<div className="App">
+		{this.state.greeting}
+		
+		
+// 자 Movie에 적용해서 5초후 새로운 영화가 뜨는 법
+class App extends Component{
+state ={
+	greeting : 'Hello'
+	movies: [
+	{ title: "",
+	poster : "",
+	} ]
+	
+	}
+
+
+
+componentDidMount(){
+	setTimeout(() => {
+	this.setState({
+	movies: [
+	…this.state.movies,
+	{title: "Trainss",
+	poster: "www...."
+	},]
+	})
+	},5000)
+	
+	
+	#4-3. Loading States
+	
+	_renderMovies = () => {
+	const movies = this.state.movies.map((movie, index) =>{
+	return <Movie……key={index} />
+	})
+	return movies
+	}
+	
+	render(){
+	
+	{this.state.movies ? this._renderMovies() : 'Loading' }
+	
+</div>
+
+
+
+
+ #5-1. Smart vs Dumb Components
+state 필요성.
+
+smart -> state 있음 dump 없음.
+
+
+
+
