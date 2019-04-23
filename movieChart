@@ -193,6 +193,31 @@ componentDidMount(){
 state 필요성.
 
 smart -> state 있음 dump 없음.
+---------------------------------------------
+
+
+title- title_english  (항목에서 체크하기)
+genres,
+description- synopsis
+
+img-> medium-cover-image값 가져오기
+
+
+
+
+_renderMovies =() => {
+const movies = this.state.movies.map( movie => {
+return <Movie title ={movie.title_english} poster={movie.small_cover_image} key{movie.id}
+           gentres = {movie.genres} synopsis = {movie.synopsis}
+
+
+movie.js -> prototype 변경해주기 ( 상세 장르 등 값)
+
+각각 내용 function 기능 만들어 주기(className도 설명)
+
+Function Movie({title, poster, genres, synopsis}){
+           re
+
 
 
 
